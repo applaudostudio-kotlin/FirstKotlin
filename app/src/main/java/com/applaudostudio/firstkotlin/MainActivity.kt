@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.applaudostudio.firstkotlin.apiclient.ApiClient
+import com.applaudostudio.firstkotlin.glide.GlideApp
 import com.applaudostudio.firstkotlin.model.JSONModel
 import com.applaudostudio.firstkotlin.model.Photos
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +32,12 @@ class MainActivity : AppCompatActivity() {
                 if (response.body() != null) {
                     resultList.addAll(response.body()!!.mPhotos)
                     txtJSON.text = resultList[0].mImg_src
+
+
+                    GlideApp.with(applicationContext)
+                            .load(resultList[0].mImg_src)
+                            .into(imageViewImg)
+
                 }
             }
 
