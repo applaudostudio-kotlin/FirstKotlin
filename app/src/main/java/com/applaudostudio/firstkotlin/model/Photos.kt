@@ -3,6 +3,10 @@ package com.applaudostudio.firstkotlin.model
 import com.google.gson.annotations.SerializedName
 
 class Photos {
+    constructor(mImg_src: String) {
+        this.mImg_src = mImg_src
+    }
+
     /*
     @SerializedName("id")
     private int mId;
