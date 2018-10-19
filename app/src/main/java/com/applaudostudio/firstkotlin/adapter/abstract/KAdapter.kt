@@ -1,4 +1,4 @@
-package com.applaudostudio.firstkotlin.adapter
+package com.applaudostudio.firstkotlin.adapter.abstract
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -23,7 +23,8 @@ fun <ITEM> RecyclerView.setUp(items: MutableList<ITEM>,
                               layoutResId: Int,
                               bindHolder: View.(ITEM) -> Unit,
                               itemClick: ITEM.() -> Unit = {},
-                              manager: RecyclerView.LayoutManager = LinearLayoutManager(this.context)): KAdapter<ITEM> {
-    layoutManager = manager
+                              manager: RecyclerView.LayoutManager = LinearLayoutManager(this.context)): KAdapter<ITEM> { layoutManager = manager
+
+
     return KAdapter(items, layoutResId, bindHolder, itemClick).apply { adapter = this }
 }

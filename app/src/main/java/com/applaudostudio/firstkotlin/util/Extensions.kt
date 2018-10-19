@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity
 inline fun FragmentManager.initFragmentTran(func: FragmentTransaction.() -> Unit) {
     val fragmentTransaction = beginTransaction()
     fragmentTransaction.func()
+    fragmentTransaction.addToBackStack(null)
     fragmentTransaction.commit()
 }
 

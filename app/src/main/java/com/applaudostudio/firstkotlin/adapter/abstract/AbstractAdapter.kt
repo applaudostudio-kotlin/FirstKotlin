@@ -1,4 +1,4 @@
-package com.applaudostudio.firstkotlin.adapter
+package com.applaudostudio.firstkotlin.adapter.abstract
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 
 abstract class AbstractAdapter<ITEM> constructor(
-        protected var itemList: List<ITEM>,
+        private var itemList: List<ITEM>,
         private val layoutResId: Int)
     : RecyclerView.Adapter<AbstractAdapter.Holder>() {
 
