@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.applaudostudio.firstkotlin.fragment.ListFragment
 import com.applaudostudio.firstkotlin.fragment.ListFragmentNormal
+import com.applaudostudio.firstkotlin.util.addFragment
 import com.applaudostudio.firstkotlin.util.replaceFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
@@ -31,16 +32,18 @@ lateinit var resultList:MutableList<Photos>
 
 
     override fun onClick(p0: View?) {
-        val fragmentList: ListFragment = ListFragment.newInstance("HOLA");
         when (p0) {
             button -> {
-                val fragmentList: ListFragment = ListFragmentNormal.newInstance();
+                val fragmentList2:ListFragmentNormal = ListFragmentNormal.newInstance();
+                this.addFragment(fragmentList2, R.id.fragmentContainer)
+
             }
             button2 ->{
                 val fragmentList: ListFragment = ListFragment.newInstance("Abstract Adapter");
+                this.addFragment(fragmentList, R.id.fragmentContainer)
+
             }
         }
-        this.replaceFragment(fragmentList, R.id.fragmentContainer)
 
 
 

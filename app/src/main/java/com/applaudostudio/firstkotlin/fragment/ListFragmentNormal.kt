@@ -2,6 +2,7 @@ package com.applaudostudio.firstkotlin.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -40,14 +41,16 @@ class ListFragmentNormal : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         normalAdapter.setData(mutableListOf())
-        recyclerViewImages.adapter=normalAdapter
 
+        recyclerViewImages.layoutManager= GridLayoutManager(getActivity(), 3)
+        recyclerViewImages.adapter=normalAdapter
+        LoadList()
     }
 
 
     companion object {
         @JvmStatic
-        fun newInstance() = ListFragment()
+        fun newInstance() = ListFragmentNormal()
     }
 
     fun LoadList(pPage: Int = 1) {
